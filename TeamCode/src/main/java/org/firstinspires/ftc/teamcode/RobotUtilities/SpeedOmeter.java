@@ -1,25 +1,27 @@
 package org.firstinspires.ftc.teamcode.RobotUtilities;
 
-import static org.firstinspires.ftc.teamcode.treamcode.MathFunctions.AngleWrap;
-import static org.firstinspires.ftc.teamcode.treamcode.Robot.worldAngle_rad;
+import org.firstinspires.ftc.teamcode.treamcode.MathFunctions;
+
+import org.firstinspires.ftc.teamcode.treamcode.Robot;
+import org.firstinspires.ftc.teamcode.treamcode.Robot.*;
 
 public class SpeedOmeter {
-    private static long lastUpdateStartTime = 0;
-    private static double currSpeedY = 0.0;
-    private static double currSpeedX = 0.0;
+    private  long lastUpdateStartTime = 0;
+    private  double currSpeedY = 0.0;
+    private  double currSpeedX = 0.0;
 
     //min time between updates to make sure our speed is accurate
-    public static int timeBetweenUpdates = 25;
-    public static double yDistTraveled = 0;
-    public static double xDistTraveled = 0;
+    public  int timeBetweenUpdates = 25;
+    public  double yDistTraveled = 0;
+    public  double xDistTraveled = 0;
 
 
-    public static double lastAngle = 0;
+    public  double lastAngle = 0;
 
-    public static double angularVelocity = 0;
+    public  double angularVelocity = 0;
 
     //calculates our current velocity every update
-    public static void update(){
+    public  void update(){
         long currTime = System.currentTimeMillis();
 
         //return if no change in telemetry
@@ -41,8 +43,8 @@ public class SpeedOmeter {
             }
 
 
-            angularVelocity = AngleWrap(worldAngle_rad-lastAngle) / elapsedTime;
-            lastAngle = worldAngle_rad;
+            angularVelocity = MathFunctions.AngleWrap(Robot.worldAngle_rad-lastAngle) / elapsedTime;
+            lastAngle = Robot.worldAngle_rad;
 
             yDistTraveled = 0;
             xDistTraveled = 0;
@@ -51,40 +53,40 @@ public class SpeedOmeter {
     }
 
     /**gets relative y speed in cm/s*/
-    public static double getSpeedY(){
+    public  double getSpeedY(){
         return currSpeedY;
     }
     /**gets relative x speed = cm/s*/
-    public static double getSpeedX(){
+    public  double getSpeedX(){
         return currSpeedX;
     }
 
-    public static double getDegPerSecond() {
+    public  double getDegPerSecond() {
         return Math.toDegrees(angularVelocity);
     }
-    public static double getRadPerSecond(){
+    public  double getRadPerSecond(){
         return angularVelocity;
     }
 
-    public static double scalePrediction = 1.0;
+    public  double scalePrediction = 1.0;
     //amount robot slips (cm) while going forwards 1 centimeter per second
-    public static double ySlipDistanceFor1CMPS = 0.14 * scalePrediction;//0.169;
-    public static double xSlipDistanceFor1CMPS = 0.153 * scalePrediction;//0.117;
+    public  double ySlipDistanceFor1CMPS = 0.14 * scalePrediction;//0.169;
+    public  double xSlipDistanceFor1CMPS = 0.153 * scalePrediction;//0.117;
     //radians the robot slips when going 1 radian per second
-    public static double turnSlipAmountFor1RPS = 0.09 * scalePrediction;//0.113;
+    public  double turnSlipAmountFor1RPS = 0.09 * scalePrediction;//0.113;
 
 
     /** Gives the current distance (cm) the robot would slip if power is set to 0 */
-    public static double currSlipDistanceY(){
+    public  double currSlipDistanceY(){
         return SpeedOmeter.getSpeedY() * ySlipDistanceFor1CMPS;
     }
 
-    public static double currSlipDistanceX(){
+    public  double currSlipDistanceX(){
         return SpeedOmeter.getSpeedX() * xSlipDistanceFor1CMPS;
     }
 
     /** Gives the number of radians the robot would turn if power was cut now*/
-    public static double currSlipAngle(){
+    public  double currSlipAngle(){
         return getRadPerSecond() * turnSlipAmountFor1RPS;
     }
 }

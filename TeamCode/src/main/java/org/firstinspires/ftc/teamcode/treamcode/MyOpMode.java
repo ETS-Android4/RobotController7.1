@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.treamcode;
 
-import static org.firstinspires.ftc.teamcode.treamcode.RobotMovement.*;
+import org.firstinspires.ftc.teamcode.treamcode.RobotMovement;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
@@ -24,6 +24,6 @@ public class MyOpMode extends OpMode {
         allPoints.add(new CurvePoint(280,50,1.0,1.0,50,Math.toRadians(50),1.0));
         allPoints.add(new CurvePoint(180,0,1.0,1.0,50,Math.toRadians(50),1.0));
 
-        followCurve(allPoints,Math.toRadians(90));
+        RobotMovement.followCurve(allPoints,Math.toRadians(90));
     }
 }

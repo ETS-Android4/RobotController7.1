@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.RobotUtilities.MovementVars;
 import org.firstinspires.ftc.teamcode.RobotUtilities.SpeedOmeter;
 
 public class Robot {
-    public static boolean usingComputer = true;
+    public  boolean usingComputer = false;
 
     /**
      * Creates a robot simulation
@@ -23,9 +23,9 @@ public class Robot {
     public double ySpeed = 0;
     public double turnSpeed = 0;
 
-    public static double worldXPosition;
-    public static double worldYPosition;
-    public static double worldAngle_rad;
+    public  double worldXPosition;
+    public  double worldYPosition;
+    public  double worldAngle_rad;
 
     public double getXPos(){
         return worldXPosition;

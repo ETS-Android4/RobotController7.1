@@ -46,7 +46,7 @@ public class GeluRobot extends OpMode{
     protected double wrearleft;
     protected double wrearright;
 
-    protected static double L = 12;//distance between encoder 1 and 2 in cm
+    protected static double L = 12;
     protected static double B = 11.5;//distance between encoder 1 and 2 in cm
     protected static double R = 3.0;//wheel radius in cm
     protected static double N = 8192;//encoder ticks per revolution,rev encoder
@@ -510,7 +510,7 @@ public class GeluRobot extends OpMode{
         rearLeftMotor.setPower(power);
         rearRightMotor.setPower(0);
     }
-    protected void go(double power,double turnO,double angleO){
+    public void go(double power, double turnO, double angleO){
         double sin = Math.sin(angleO - Math.PI/4);
         double cos = Math.cos(angleO - Math.PI/4);
         double MAX = Math.max(Math.abs(sin), Math.abs(cos));

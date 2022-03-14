@@ -11,7 +11,7 @@ public class MathFunctions {
      * @param angle
      * @return
      */
-    public static double AngleWrap(double angle){
+    public double AngleWrap(double angle){
         if (angle < -Math.PI){
             angle %= (2 * Math.PI);
             angle += 2 * Math.PI;
@@ -23,7 +23,7 @@ public class MathFunctions {
         return angle;
     }
 
-    public static ArrayList<Point> lineCircleIntersection(Point circleCenter, double radius,
+    public ArrayList<Point> lineCircleIntersection(Point circleCenter, double radius,
                                                           Point linePoint1, Point linePoint2){
         if(Math.abs(linePoint1.y - linePoint2.y ) < 0.003){
             linePoint1.y = linePoint2.y + 0.003;
