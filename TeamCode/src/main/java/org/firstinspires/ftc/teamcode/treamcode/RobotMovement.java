@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.RobotUtilities.MovementVars;
 import  org.firstinspires.ftc.teamcode.treamcode.Robot.*;
 import  org.firstinspires.ftc.teamcode.treamcode.Robot;
 
-import static org.firstinspires.ftc.teamcode.RobotUtilities.MovementVars.*;
+import  org.firstinspires.ftc.teamcode.RobotUtilities.MovementVars.*;
 
 import java.util.ArrayList;
 
@@ -19,12 +19,12 @@ public class RobotMovement extends GeluRobot{
 
 
     public void followCurve(ArrayList<CurvePoint> allPoints, double followAngle){
-        for( int i = 0; i < allPoints.size()- 1;i++){
+      //  for( int i = 0; i < allPoints.size()- 1;i++){
             //ComputerDebugging.sendLine(new FloatPoint(allPoints.get(i).x,allPoints.get(i).y),
                     //new FloatPoint(allPoints.get(i+1).x,allPoints.get(i+1).y));
-        }
+      //  }
 
-        CurvePoint followMe = getFollowPointPath(allPoints,new Point(Robot.worldXPosition,Robot.worldYPosition),
+        CurvePoint followMe = getFollowPointPath(allPoints,new Point(RobotMovement.worldXPosition,RobotMovement.worldYPosition),
                 allPoints.get(0).followDistance);
 
         //ComputerDebugging.sendKeyPoint(new FloatPoint(followMe.x,followMe.y));

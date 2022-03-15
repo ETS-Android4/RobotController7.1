@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.autonomii;
 
-import static org.firstinspires.ftc.teamcode.treamcode.RobotMovement.followCurve;
+import org.firstinspires.ftc.teamcode.treamcode.RobotMovement;
 
 import org.checkerframework.checker.units.qual.C;
 import org.firstinspires.ftc.teamcode.GeluRobot;
